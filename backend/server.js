@@ -15,7 +15,7 @@ app.post('/addTask', (request, response) => {
 })
 
 // route for editing task.
-app.put('/edit:id', (request, response) => {
+app.get('/edit/:id', (request, response) => {
     response.status(200).json({ message: "Testing edit of task route" })
 })
 
