@@ -1,11 +1,13 @@
 const express = require('express')
 const dotenv = require('dotenv').config()
 const port = process.env.PORT || 5000
+const { errorHandler } = require('./middleware/errorMiddleware')
 const task = require('./routes/taskRoutes')
 const app = express()
 const mongoose = require('mongoose')
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 //route for adding task
 //route for editing task.
 //route for completing task
@@ -20,6 +22,7 @@ app.get('/', (request, response) => {
 
 
 
+app.use(errorHandler)
 
 app.listen(port, () => console.log(` Server is started on PORT ${port}`))
 
