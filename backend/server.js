@@ -1,10 +1,13 @@
 const express = require('express')
 const dotenv = require('dotenv').config()
+const connectDB = require('./config/db')
 const port = process.env.PORT || 5000
 const { errorHandler } = require('./middleware/errorMiddleware')
 const task = require('./routes/taskRoutes')
+connectDB()
+
 const app = express()
-const mongoose = require('mongoose')
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))

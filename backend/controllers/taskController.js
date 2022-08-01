@@ -1,9 +1,9 @@
-const asnycHandler = require('express-async-handler')
+const asyncHandler = require('express-async-handler')
 
 // @desc set task
 // @route POST /task/settask
 // @access public
-const setTask = asnycHandler(async (request, response) => {
+const setTask = asyncHandler(async (request, response) => {
     if (!request.body.text) {
         response.status(400)
         throw new Error('Please add text field')
