@@ -3,19 +3,13 @@ const router = express.Router()
 const { setTask, editTask, completeTask, deleteTask } = require('../controllers/taskController')
 
 
-router
-    .route('/settask')
-    .post(setTask)
+router.post('/settask', setTask)
 
-router
-    .route('/edit/:id')
-    .get(editTask)
+router.get('/edit/:id', editTask)
 
-router
-    .route('/complete/:id')
-    .put(completeTask)
+router.put('/complete/:id', completeTask)
 
-router
-    .route('/deletetask/:id')
-    .delete(deleteTask)
+router.delete('/deletetask/:id', deleteTask)
+
+
 module.exports = router
